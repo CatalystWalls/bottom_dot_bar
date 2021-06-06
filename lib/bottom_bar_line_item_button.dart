@@ -32,10 +32,19 @@ class BottomBarLineItemButton extends StatelessWidget {
             : (item.icon.color ?? Theme.of(context).iconTheme.color),
       ),
       builder: (_, dynamic color, __) {
-        return Icon(
-          item.icon.icon,
-          color: color,
-          size: item.icon.size,
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              item.icon.icon,
+              color: color,
+              size: item.icon.size,
+            ),
+            isActive ? item.title : Container(),
+            SizedBox(
+              height: 8,
+            )
+          ],
         );
       },
     );
