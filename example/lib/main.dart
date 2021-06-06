@@ -73,34 +73,38 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       bottomNavigationBar: BottomBarLine(
-        currentIndex: currentPage,
-        onTap: (int index) {
-          if (index != currentPage) {
-            pageController.animateToPage(
-              index,
-              duration: Duration(milliseconds: 360),
-              curve: Curves.fastOutSlowIn,
-            );
-            setState(() {
-              currentPage = index;
-            });
-          }
-        },
-        items: [
-          BottomBarLineItem(
-            icon: Icon(Icons.home),
-            selectedColor: Colors.red,
-          ),
-          BottomBarLineItem(
-            icon: Icon(Icons.library_books),
-            selectedColor: Colors.blue,
-          ),
-          BottomBarLineItem(
-            icon: Icon(Icons.headset),
-            selectedColor: Colors.orange,
-          ),
-        ],
-      ),
+          currentIndex: currentPage,
+          onTap: (int index) {
+            if (index != currentPage) {
+              pageController.animateToPage(
+                index,
+                duration: Duration(milliseconds: 360),
+                curve: Curves.fastOutSlowIn,
+              );
+              setState(() {
+                currentPage = index;
+              });
+            }
+          },
+          items: [
+            BottomBarLineItem(
+              title: Text('hello'),
+              icon: Icon(Icons.home),
+              selectedColor: Colors.red,
+            ),
+            BottomBarLineItem(
+              title: Text('hello'),
+              icon: Icon(Icons.library_books),
+              selectedColor: Colors.blue,
+            ),
+            BottomBarLineItem(
+              title: Text('hello'),
+              icon: Icon(Icons.headset),
+              selectedColor: Colors.orange,
+            ),
+          ],
+          highlightColor: Colors.red,
+          splashColor: Colors.blue),
     );
   }
 }

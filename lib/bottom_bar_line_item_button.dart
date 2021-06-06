@@ -31,7 +31,7 @@ class BottomBarLineItemButton extends StatelessWidget {
             ? item.selectedColor
             : (item.icon.color ?? Theme.of(context).iconTheme.color),
       ),
-      builder: (_, color, __) {
+      builder: (_, dynamic color, __) {
         return Icon(
           item.icon.icon,
           color: color,
