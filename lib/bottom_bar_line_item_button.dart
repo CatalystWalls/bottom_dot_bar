@@ -10,6 +10,8 @@ class BottomBarLineItemButton extends StatelessWidget {
   final Duration duration;
   final bool iconJump;
   final BottomNavItems navItems;
+  final double capsulePaddingHorizontal;
+  final double capsulePaddingVertical;
 
   BottomBarLineItemButton({
     required this.item,
@@ -20,6 +22,8 @@ class BottomBarLineItemButton extends StatelessWidget {
     this.highlightColor = Colors.transparent,
     required this.iconJump,
     required this.navItems,
+    required this.capsulePaddingHorizontal,
+    required this.capsulePaddingVertical,
   });
 
   @override
@@ -83,27 +87,32 @@ class BottomBarLineItemButton extends StatelessWidget {
     );
 
     return Expanded(
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          iconJump
-              ? AnimatedAlign(
-                  duration: duration,
-                  alignment: isActive ? Alignment(0, -.2) : Alignment.center,
-                  child: icon,
-                )
-              : icon,
-          Positioned.fill(
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                onTap: onTap,
-                splashColor: splashColor,
-                highlightColor: highlightColor,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: capsulePaddingHorizontal,
+            vertical: capsulePaddingVertical),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            iconJump
+                ? AnimatedAlign(
+                    duration: duration,
+                    alignment: isActive ? Alignment(0, -.2) : Alignment.center,
+                    child: icon,
+                  )
+                : icon,
+            Positioned.fill(
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  onTap: onTap,
+                  splashColor: splashColor,
+                  highlightColor: highlightColor,
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
