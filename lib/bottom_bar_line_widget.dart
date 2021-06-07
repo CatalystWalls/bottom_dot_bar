@@ -30,6 +30,7 @@ class BottomBarLine extends StatefulWidget {
 
   final Color splashColor;
   final Color highlightColor;
+  final BottomNavItems navItems;
 
   BottomBarLine({
     Key? key,
@@ -43,6 +44,7 @@ class BottomBarLine extends StatefulWidget {
     required this.splashColor,
     required this.highlightColor,
     this.iconJump = true,
+    required this.navItems,
   }) : super(key: key);
 
   @override
@@ -107,6 +109,7 @@ class _BottomBarLineState extends State<BottomBarLine> {
                       splashColor: widget.splashColor,
                       duration: widget.duration,
                       iconJump: widget.iconJump,
+                      navItems: widget.navItems,
                     ),
                   )
                   .toList(),

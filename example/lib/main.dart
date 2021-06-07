@@ -1,4 +1,5 @@
 import 'package:bottom_bar_line/bottom_bar_line.dart';
+import 'package:bottom_bar_line/bottom_bar_line_item_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -73,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       bottomNavigationBar: BottomBarLine(
+          navItems: BottomNavItems.textOnly,
           currentIndex: currentPage,
           onTap: (int index) {
             if (index != currentPage) {
