@@ -12,6 +12,7 @@ class BottomBarLineItemButton extends StatelessWidget {
   final BottomNavItems navItems;
   final double capsulePaddingHorizontal;
   final double capsulePaddingVertical;
+  final double rippleRadius;
 
   BottomBarLineItemButton({
     required this.item,
@@ -24,6 +25,7 @@ class BottomBarLineItemButton extends StatelessWidget {
     required this.navItems,
     required this.capsulePaddingHorizontal,
     required this.capsulePaddingVertical,
+    this.rippleRadius = 0,
   });
 
   @override
@@ -91,27 +93,31 @@ class BottomBarLineItemButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(
             horizontal: capsulePaddingHorizontal,
             vertical: capsulePaddingVertical),
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            iconJump
-                ? AnimatedAlign(
-                    duration: duration,
-                    alignment: isActive ? Alignment(0, -.2) : Alignment.center,
-                    child: icon,
-                  )
-                : icon,
-            Positioned.fill(
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  onTap: onTap,
-                  splashColor: splashColor,
-                  highlightColor: highlightColor,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(rippleRadius),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              iconJump
+                  ? AnimatedAlign(
+                      duration: duration,
+                      alignment:
+                          isActive ? Alignment(0, -.2) : Alignment.center,
+                      child: icon,
+                    )
+                  : icon,
+              Positioned.fill(
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: onTap,
+                    splashColor: splashColor,
+                    highlightColor: highlightColor,
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -28,11 +28,23 @@ class BottomBarLine extends StatefulWidget {
   /// The animation duration
   final Duration duration;
 
+  /// Splash Color of Ripple
   final Color splashColor;
+
+  // highlightColour of Ripple
   final Color highlightColor;
+
+  /// Type of NavItem you Want
   final BottomNavItems navItems;
+
+  /// Padding of Capsules in horizontal
   final double capsulePaddingHorizontal;
+
+  /// Padding of Capsules in vertical
   final double capsulePaddingVertical;
+
+  /// Radius of Ripple
+  final double rippleRadius;
 
   BottomBarLine({
     Key? key,
@@ -47,8 +59,9 @@ class BottomBarLine extends StatefulWidget {
     required this.highlightColor,
     this.iconJump = true,
     required this.navItems,
-    this.capsulePaddingHorizontal = 1,
-    this.capsulePaddingVertical = 1,
+    this.capsulePaddingHorizontal = 6,
+    this.capsulePaddingVertical = 4,
+    this.rippleRadius = 5,
   }) : super(key: key);
 
   @override
@@ -106,6 +119,7 @@ class _BottomBarLineState extends State<BottomBarLine> {
                   .entries
                   .map<Widget>(
                     (item) => BottomBarLineItemButton(
+                      rippleRadius: widget.rippleRadius,
                       item: item.value,
                       isActive: widget.currentIndex == item.key,
                       onTap: isAnimating ? () {} : () => widget.onTap(item.key),
