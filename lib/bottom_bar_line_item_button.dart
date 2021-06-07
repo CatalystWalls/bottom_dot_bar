@@ -83,30 +83,27 @@ class BottomBarLineItemButton extends StatelessWidget {
     );
 
     return Expanded(
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            iconJump
-                ? AnimatedAlign(
-                    duration: duration,
-                    alignment: isActive ? Alignment(0, -.2) : Alignment.center,
-                    child: icon,
-                  )
-                : icon,
-            Positioned.fill(
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  onTap: onTap,
-                  splashColor: splashColor,
-                  highlightColor: highlightColor,
-                ),
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          iconJump
+              ? AnimatedAlign(
+                  duration: duration,
+                  alignment: isActive ? Alignment(0, -.2) : Alignment.center,
+                  child: icon,
+                )
+              : icon,
+          Positioned.fill(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: onTap,
+                splashColor: splashColor,
+                highlightColor: highlightColor,
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }

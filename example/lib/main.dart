@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       bottomNavigationBar: BottomBarLine(
-          navItems: BottomNavItems.textOnly,
+          navItems: BottomNavItems.textWhenSelected,
           currentIndex: currentPage,
           onTap: (int index) {
             if (index != currentPage) {
