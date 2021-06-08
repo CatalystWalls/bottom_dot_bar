@@ -43,26 +43,119 @@ class _HomeScreenState extends State<HomeScreen> {
       body: PageView(
         controller: pageController,
         children: [
-          Container(
-            constraints: BoxConstraints.expand(),
-            color: Colors.red,
-            child: Center(
-              child: Text('PAGE 1'),
+          Scaffold(
+            body: Container(
+              constraints: BoxConstraints.expand(),
+              color: Colors.red,
+              child: Center(
+                child: Text('PAGE 1'),
+              ),
             ),
+            bottomNavigationBar: BottomBarLine(
+                navItems: BottomNavItems.iconWithText,
+                currentIndex: currentPage,
+                onTap: (int index) {
+                  if (index != currentPage) {
+                    setState(() {
+                      currentPage = index;
+                    });
+                  }
+                },
+                items: [
+                  BottomBarLineItem(
+                    title: Text('hello'),
+                    icon: Icon(Icons.home),
+                    selectedColor: Colors.red,
+                  ),
+                  BottomBarLineItem(
+                    title: Text('hello'),
+                    icon: Icon(Icons.library_books),
+                    selectedColor: Colors.blue,
+                  ),
+                  BottomBarLineItem(
+                    title: Text('hello'),
+                    icon: Icon(Icons.headset),
+                    selectedColor: Colors.orange,
+                  ),
+                ],
+                highlightColor: Colors.red,
+                splashColor: Colors.blue),
           ),
-          Container(
-            constraints: BoxConstraints.expand(),
-            color: Colors.blue,
-            child: Center(
-              child: Text('PAGE 2'),
+          Scaffold(
+            body: Container(
+              constraints: BoxConstraints.expand(),
+              color: Colors.blue,
+              child: Center(
+                child: Text('PAGE 2'),
+              ),
             ),
+            bottomNavigationBar: BottomBarLine(
+                navItems: BottomNavItems.onlyIcon,
+                currentIndex: currentPage,
+                onTap: (int index) {
+                  if (index != currentPage) {
+                    setState(() {
+                      currentPage = index;
+                    });
+                  }
+                },
+                items: [
+                  BottomBarLineItem(
+                    title: Text('hello'),
+                    icon: Icon(Icons.home),
+                    selectedColor: Colors.red,
+                  ),
+                  BottomBarLineItem(
+                    title: Text('hello'),
+                    icon: Icon(Icons.library_books),
+                    selectedColor: Colors.blue,
+                  ),
+                  BottomBarLineItem(
+                    title: Text('hello'),
+                    icon: Icon(Icons.headset),
+                    selectedColor: Colors.orange,
+                  ),
+                ],
+                highlightColor: Colors.red,
+                splashColor: Colors.blue),
           ),
-          Container(
-            constraints: BoxConstraints.expand(),
-            color: Colors.orange,
-            child: Center(
-              child: Text('PAGE 3'),
+          Scaffold(
+            body: Container(
+              constraints: BoxConstraints.expand(),
+              color: Colors.orange,
+              child: Center(
+                child: Text('PAGE 3'),
+              ),
             ),
+            bottomNavigationBar: BottomBarLine(
+                navItems: BottomNavItems.showAll,
+                currentIndex: currentPage,
+                onTap: (int index) {
+                  if (index != currentPage) {
+                    setState(() {
+                      currentPage = index;
+                    });
+                  }
+                },
+                items: [
+                  BottomBarLineItem(
+                    title: Text('hello'),
+                    icon: Icon(Icons.home),
+                    selectedColor: Colors.red,
+                  ),
+                  BottomBarLineItem(
+                    title: Text('hello'),
+                    icon: Icon(Icons.library_books),
+                    selectedColor: Colors.blue,
+                  ),
+                  BottomBarLineItem(
+                    title: Text('hello'),
+                    icon: Icon(Icons.headset),
+                    selectedColor: Colors.orange,
+                  ),
+                ],
+                highlightColor: Colors.red,
+                splashColor: Colors.blue),
           ),
         ],
         onPageChanged: (int index) {
@@ -78,12 +171,12 @@ class _HomeScreenState extends State<HomeScreen> {
           currentIndex: currentPage,
           onTap: (int index) {
             if (index != currentPage) {
-              pageController.animateToPage(
-                index,
-                duration: Duration(milliseconds: 360),
-                curve: Curves.fastOutSlowIn,
-              );
               setState(() {
+                pageController.animateToPage(
+                  index,
+                  duration: Duration(milliseconds: 360),
+                  curve: Curves.fastOutSlowIn,
+                );
                 currentPage = index;
               });
             }
